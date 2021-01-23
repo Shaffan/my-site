@@ -1,0 +1,40 @@
+.container {
+    width: 100%;
+    text-align: left;
+
+    &:not(:last-of-type) {
+        border-bottom: 1px solid #696969;
+    }
+
+    figure {
+        margin: 0 0 20px;
+
+        figcaption {
+            margin: 0;
+            font-size: 0.7rem;
+            line-height: 0.8rem;
+            text-align: center;
+        }
+    }
+
+    img {
+        border: 1px solid lightgray;
+        width: 100%;
+    }
+}
+
+.heading {
+    margin: 15px 0 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", serif, Cambria, Helvetica Neue, sans-serif;
+    font-size: 2.7rem;
+    font-weight: 600;
+    line-height: 3rem;
+}
+
+.heading a {
+    text-decoration: none;
+}
+
+.createdAt {
+    color: #696969;
+}
