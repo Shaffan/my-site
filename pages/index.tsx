@@ -1,34 +1,22 @@
-import Head from 'next/head'
 import React from 'react'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
+import Post from '../types/Post'
+import Page from '../types/Page'
+import NavLink from '../types/NavLink'
 import Layout from '../components/Layout'
-import { Nav } from '../components/Nav'
-import { PostCard } from '../components/PostCard'
+import Nav from '../components/Nav'
 import styles from '../styles/Home.module.scss'
 
 const { CONTENT_API_URL, CONTENT_API_KEY } = process.env
 
-interface Post {
-  slug: string
-  url: string
-  title: string
-  reading_time: string
-  feature_image: string
-  html: string
-  created_at: string
-}
-
-interface Page {
-  title: string
-  slug: string
-}
-
 // called at *build* time
 export const getStaticProps = async () => {
   const posts = await getPosts()
-  const pages = await getPages()
+  const navLinks = await getNavLinks()
 
   return {
-    props: { posts, pages }
+    props: { posts, navLinks }
   }
 }
 
@@ -42,26 +30,49 @@ async function getPosts() {
   return json.posts
 }
 
-async function getPages(): Promise<Page[]> {
+async function getNavLinks(): Promise<NavLink[]> {
   const res = await fetch(
     `${CONTENT_API_URL}/ghost/api/v3/content/pages?key=${CONTENT_API_KEY}&fields=title,slug`
   )
-
   const json = await res.json()
 
-  return json.pages
+  const pageLinks = json.pages.map((page: Page) => {
+    return { title: page.title, url: `/${page.slug}` }
+  })
+  const customLinks = [
+    // { title: 'resume', url: '/stefan-horne.pdf', openInNewTab: true },
+    { title: 'github', url: 'https://github.com/Shaffan', openInNewTab: true },
+    { title: 'email', url: 'mailto:hello@stefanhorne.com' },
+    { title: 'blog', url: '/blog' }
+  ]
+
+  return [...customLinks, ...pageLinks]
 }
 
-const Home: React.FC<{ posts: Post[]; pages: Page[] }> = (props) => {
-  const { posts, pages } = props
+const Home: React.FC<{ posts: Post[]; navLinks: NavLink[] }> = (props) => {
+  const { navLinks } = props
 
-  const postCards = posts.map((post) => <PostCard post={post}></PostCard>)
+  const router = useRouter()
+
+  // in production this only occurs the first time a user hits this post (SSG)
+  // Nextjs saves a static html file upon receiving the first request and returns that static file on subsequent requests
+  if (router.isFallback) {
+    return (
+      <Layout>
+        <div className={styles.container}>
+          <h1>One moment...</h1>
+        </div>
+      </Layout>
+    )
+  }
 
   return (
     <Layout>
-      {/* <Nav navLinks={pages}></Nav> */}
       <main className={styles.main} role="content">
-        {postCards}
+        <header className={styles.header}>
+          <span className={styles.title}>Stefan Horne</span>
+        </header>
+        <Nav navLinks={navLinks}></Nav>
       </main>
     </Layout>
   )

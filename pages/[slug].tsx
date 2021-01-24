@@ -1,13 +1,14 @@
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
-import { Nav } from '../components/Nav'
 import Layout from '../components/Layout'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 import styles from '../styles/Page.module.scss'
+import Page from '../types/Page'
 
 const { CONTENT_API_URL, CONTENT_API_KEY } = process.env
 
-async function getPage(slug) {
+async function getPage(slug): Promise<Page> {
   const res = await fetch(
     `${CONTENT_API_URL}/ghost/api/v3/content/pages/slug/${slug}?key=${CONTENT_API_KEY}&fields=title,slug,html`
   )
@@ -17,7 +18,6 @@ async function getPage(slug) {
   return json.pages[0]
 }
 
-// SSG
 export const getStaticProps = async ({ params }) => {
   const page = await getPage(params.slug)
 
@@ -33,15 +33,7 @@ export const getStaticPaths = async () => {
   }
 }
 
-type Page = {
-  title: string
-  html: string
-  slug: string
-}
-
-const Page: React.FC<{ page: Page }> = (props) => {
-  console.log(props)
-
+const SitePage: React.FC<{ page: Page }> = (props) => {
   const { page } = props
 
   const router = useRouter()
@@ -49,20 +41,25 @@ const Page: React.FC<{ page: Page }> = (props) => {
   // in production this only occurs the first time a user hits this post (SSG)
   // Nextjs saves a static html file upon receiving the first request and returns that static file on subsequent requests
   if (router.isFallback) {
-    return <h1>Loading...</h1>
+    return (
+      <Layout>
+        <div className={styles.container}>
+          <h1>One moment...</h1>
+        </div>
+      </Layout>
+    )
   }
-
-  const navLinks = [{ title: 'Go back', slug: '' }]
 
   return (
     <Layout>
+      <Header></Header>
       <div className={styles.container}>
-        <Nav navLinks={navLinks}></Nav>
-        <h1>{page.title}</h1>
+        <h1 className={styles.heading}>{page.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: page.html }}></div>
       </div>
+      <Footer></Footer>
     </Layout>
   )
 }
 
-export default Page
+export default SitePage

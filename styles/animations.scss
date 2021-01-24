@@ -1,0 +1,23 @@
+@-webkit-keyframes a-friendly-fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @-moz-keyframes a-friendly-fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @-o-keyframes a-friendly-fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  @keyframes a-friendly-fadeIn {
+    0%   { opacity: 0; }
+    100% { opacity: 1; }
+  }
+
+  @mixin friendly-fadeIn {
+    -webkit-animation: a-friendly-fadeIn 1s; /* Safari 4+ */
+    -moz-animation: a-friendly-fadeIn 1s; /* Fx 5+ */
+    -o-animation: a-friendly-fadeIn 1s; /* Opera 12+ */
+    animation: a-friendly-fadeIn 1s; /* IE 10+, Fx 29+ */
+  }

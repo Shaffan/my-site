@@ -1,11 +1,53 @@
+@import './styles/animations';
+
 .container {
-  padding: 5rem 0;
+  padding: 2.5rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   max-width: 800px;
   margin: 0 auto;
   font-size: 1.2rem;
+
+  @include friendly-fadeIn;
+
+  figure {
+    margin: 0 0 20px;
+
+    figcaption {
+      margin: 0;
+      font-size: 0.7rem;
+      line-height: 0.8rem;
+      text-align: center;
+    }
+  }
+
+  img {
+    border: 1px solid lightgray;
+    width: 100%;
+  }
+}
+
+.heading {
+  margin: 15px 0 10px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', serif, Cambria, Helvetica Neue,
+    sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 3rem;
+}
+
+.createdAt,
+.readingTime {
+  font-size: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', serif, Cambria, Helvetica Neue,
+    sans-serif;
+  color: #696969;
+}
+
+.readingTime {
+  font-size: 0.8rem;
+  align-self: flex-end;
 }

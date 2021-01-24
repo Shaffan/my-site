@@ -1,13 +1,33 @@
-.navigation {
-    
+.container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', serif, Cambria, Helvetica Neue,
+    sans-serif;
+  font-weight: 600;
+  border-top: 1px solid lightgray;
 }
 
 .list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0 0;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .listItem a {
-    text-decoration: none;
+  color: #9227ff;
+  text-decoration: none;
+  border: none;
+
+  &:hover {
+    border-bottom: 1px solid #9227ff;
+  }
+}
+
+.listItem {
+  margin: 0 10px 0;
+  text-transform: lowercase;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
 }
