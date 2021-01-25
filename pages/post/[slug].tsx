@@ -65,6 +65,7 @@ const PostPage: React.FC<{ post: Post }> = (props) => {
 
         <div dangerouslySetInnerHTML={{ __html: post.html }}></div>
       </main>
+      <BackToTop></BackToTop>
       <Footer></Footer>
     </Layout>
   )

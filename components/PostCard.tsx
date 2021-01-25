@@ -1,6 +1,6 @@
-import React from 'react'
-import Link from 'next/link'
 import { format } from 'date-fns'
+import Link from 'next/link'
+import React from 'react'
 import styles from '../styles/PostCard.module.scss'
 import Post from '../types/Post'
 

@@ -6,6 +6,7 @@ import { PostCard } from '../components/PostCard'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import styles from '../styles/Blog.module.scss'
+import BackToTop from '../components/BackToTop'
 
 const { CONTENT_API_URL, CONTENT_API_KEY } = process.env
 
@@ -52,6 +53,7 @@ const Home: React.FC<{ posts: Post[] }> = (props) => {
         {posts.map((post) => (
           <PostCard post={post}></PostCard>
         ))}
+        <BackToTop></BackToTop>
       </main>
       <Footer></Footer>
     </Layout>
