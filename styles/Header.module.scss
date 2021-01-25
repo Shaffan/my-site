@@ -1,10 +1,18 @@
 .container {
   height: 60px;
-  width: 100vw;
+  width: 100%;
   max-width: 800px;
   display: flex;
   justify-items: left;
   align-items: center;
+}
+
+@media (max-width: 640px) {
+  .container { 
+    text-align: center;
+    display: block;
+    padding: 10px 0;
+  }
 }
 
 .title a {
@@ -18,4 +26,10 @@
     sans-serif;
   font-size: 1.25rem;
   font-weight: 400;
+}
+
+@media (max-width: 640px) {
+  .title { 
+    font-size: 1.5rem;
+  }
 }
