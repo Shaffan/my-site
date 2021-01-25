@@ -1,12 +1,11 @@
-import React from 'react'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
-import Post from '../types/Post'
-import Page from '../types/Page'
-import NavLink from '../types/NavLink'
+import React from 'react'
 import Layout from '../components/Layout'
 import Nav from '../components/Nav'
 import styles from '../styles/Home.module.scss'
+import NavLink from '../types/NavLink'
+import Page from '../types/Page'
+import Post from '../types/Post'
 
 const { CONTENT_API_URL, CONTENT_API_KEY } = process.env
 
@@ -36,14 +35,14 @@ async function getNavLinks(): Promise<NavLink[]> {
   )
   const json = await res.json()
 
-  const pageLinks = json.pages.map((page: Page) => {
+  const pageLinks: NavLink[] = json.pages.map((page: Page) => {
     return { title: page.title, url: `/${page.slug}` }
   })
-  const customLinks = [
+  const customLinks: NavLink[] = [
     // { title: 'resume', url: '/stefan-horne.pdf', openInNewTab: true },
     { title: 'github', url: 'https://github.com/Shaffan', openInNewTab: true },
-    { title: 'email', url: 'mailto:hello@stefanhorne.com' },
-    { title: 'blog', url: '/blog' }
+    { title: 'email', url: 'mailto:hello@stefanhorne.com', openInNewTab: false },
+    { title: 'blog', url: '/blog', openInNewTab: false }
   ]
 
   return [...customLinks, ...pageLinks]

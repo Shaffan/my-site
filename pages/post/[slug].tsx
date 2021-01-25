@@ -1,10 +1,11 @@
-import { useRouter } from 'next/router'
-import styles from '../../styles/Post.module.scss'
-import Layout from '../../components/Layout'
-import Post from '../../types/Post'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
 import { format } from 'date-fns'
+import { useRouter } from 'next/router'
+import BackToTop from '../../components/BackToTop'
+import Footer from '../../components/Footer'
+import Header from '../../components/Header'
+import Layout from '../../components/Layout'
+import styles from '../../styles/Post.module.scss'
+import Post from '../../types/Post'
 
 const { CONTENT_API_URL, CONTENT_API_KEY } = process.env
 
@@ -34,14 +35,10 @@ export const getStaticPaths = async () => {
 }
 
 const PostPage: React.FC<{ post: Post }> = (props) => {
-  console.log(props)
-
   const { post } = props
 
   const router = useRouter()
 
-  // in production this only occurs the first time a user hits this post (SSG)
-  // Nextjs saves a static html file upon receiving the first request and returns that static file on subsequent requests
   if (router.isFallback) {
     return (
       <Layout>

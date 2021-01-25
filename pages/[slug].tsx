@@ -1,8 +1,9 @@
 import { useRouter } from 'next/router'
 import React from 'react'
-import Layout from '../components/Layout'
-import Header from '../components/Header'
+import BackToTop from '../components/BackToTop'
 import Footer from '../components/Footer'
+import Header from '../components/Header'
+import Layout from '../components/Layout'
 import styles from '../styles/Page.module.scss'
 import Page from '../types/Page'
 
@@ -38,8 +39,6 @@ const SitePage: React.FC<{ page: Page }> = (props) => {
 
   const router = useRouter()
 
-  // in production this only occurs the first time a user hits this post (SSG)
-  // Nextjs saves a static html file upon receiving the first request and returns that static file on subsequent requests
   if (router.isFallback) {
     return (
       <Layout>
