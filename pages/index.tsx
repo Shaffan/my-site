@@ -40,7 +40,7 @@ async function getNavLinks(): Promise<NavLink[]> {
   })
   const customLinks: NavLink[] = [
     { title: 'cv', url: '/stefan-horne.pdf', openInNewTab: true },
-    { title: 'github', url: 'https://github.com/Shaffan', openInNewTab: true },
+    { title: 'stack overflow', url: 'https://stackoverflow.com/story/stefan-horne', openInNewTab: true },
     { title: 'email', url: 'mailto:hello@stefanhorne.com', openInNewTab: false },
     { title: 'blog', url: '/blog', openInNewTab: false }
   ]
