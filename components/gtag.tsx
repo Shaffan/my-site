@@ -3,6 +3,8 @@ import Head from 'next/head'
 const { GTAG_ID } = process.env
 
 export default function Gtag() {
+  if (process.env.NODE_ENV !== 'production') return null
+
   const gtagScript = (
     <script async src={'https://www.googletagmanager.com/gtag/js?id=' + GTAG_ID}></script>
   )
