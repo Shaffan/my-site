@@ -35,17 +35,18 @@ async function getNavLinks(): Promise<NavLink[]> {
   )
   const json = await res.json()
 
-  const pageLinks: NavLink[] = json.pages.map((page: Page) => {
-    return { title: page.title, url: `/${page.slug}` }
-  })
-  const customLinks: NavLink[] = [
+  // const pageLinks: NavLink[] = json.pages.map((page: Page) => {
+  //   return { title: page.title, url: `/${page.slug}` }
+  // })
+  const links: NavLink[] = [
     { title: 'cv', url: '/stefan-horne.pdf', openInNewTab: true },
     { title: 'developer story', url: 'https://stackoverflow.com/story/stefan-horne', openInNewTab: false },
     { title: 'email', url: 'mailto:hello@stefanhorne.com', openInNewTab: false },
-    { title: 'blog', url: '/blog', openInNewTab: false }
+    { title: 'blog', url: '/blog', openInNewTab: false },
+    { title: 'about me', url: '/about', openInNewTab: false }
   ]
 
-  return [...customLinks, ...pageLinks]
+  return [...links]
 }
 
 const Home: React.FC<{ posts: Post[]; navLinks: NavLink[] }> = (props) => {
@@ -53,8 +54,6 @@ const Home: React.FC<{ posts: Post[]; navLinks: NavLink[] }> = (props) => {
 
   const router = useRouter()
 
-  // in production this only occurs the first time a user hits this post (SSG)
-  // Nextjs saves a static html file upon receiving the first request and returns that static file on subsequent requests
   if (router.isFallback) {
     return (
       <Layout>
