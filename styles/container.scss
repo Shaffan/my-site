@@ -1,0 +1,17 @@
+@import './styles/animations';
+
+@mixin container {
+  .container {
+    padding: 2.5rem 0 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+  
+    @include friendly-fadeIn;
+  }
+}
