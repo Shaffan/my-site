@@ -2,10 +2,8 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import Link from 'next/link'
 import Footer from '../components/Footer'
-import Layout from '../components/Layout'
 import styles from '../styles/About.module.scss'
 import Page from '../types/Page'
-import Header from '../components/Header'
 
 const { CONTENT_API_URL, CONTENT_API_KEY } = process.env
 
@@ -34,26 +32,24 @@ const SitePage: React.FC<{ page: Page }> = (props) => {
 
   if (router.isFallback) {
     return (
-      <Layout>
-        <div className={styles.container}>
-          <h1>One moment...</h1>
-        </div>
-      </Layout>
+      <div className={styles.container}>
+        <h1>One moment...</h1>
+      </div>
     )
   }
 
   return (
-    <Layout>
+    <div>
       <div className={styles.container}>
         <header className={styles.header}>
           <span className={styles.headerTitle}>
             <Link href="/">Stefan Horne</Link>
           </span>
         </header>
-        <div className={styles.containerInner}>
+        <div>
           <div className={styles.picContainer}>
             <img className={styles.pic} src="images/me.jpg"></img>
-            <span className={styles.picCaption}>
+            <span className={styles.caption}>
               (get a load of discount Justin Bieber over here--yes, that is a cheap wig btw)
             </span>
           </div>
@@ -62,7 +58,7 @@ const SitePage: React.FC<{ page: Page }> = (props) => {
         </div>
       </div>
       <Footer></Footer>
-    </Layout>
+    </div>
   )
 }
 
