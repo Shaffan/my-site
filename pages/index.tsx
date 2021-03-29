@@ -39,7 +39,6 @@ async function getNavLinks(): Promise<NavLink[]> {
   //   return { title: page.title, url: `/${page.slug}` }
   // })
   const links: NavLink[] = [
-    { title: 'cv', url: '/stefan-horne.pdf', openInNewTab: true },
     { title: 'developer story', url: 'https://stackoverflow.com/story/stefan-horne', openInNewTab: false },
     { title: 'email', url: 'mailto:hello@stefanhorne.com', openInNewTab: false },
     { title: 'blog', url: '/blog', openInNewTab: false },
