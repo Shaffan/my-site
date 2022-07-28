@@ -40,6 +40,7 @@ async function getNavLinks(): Promise<NavLink[]> {
   // })
   const links: NavLink[] = [
     { title: 'email', url: 'mailto:hello@stefanhorne.com', openInNewTab: false },
+    { title: 'github', url: 'https://github.com/Shaffan', openInNewTab: false },
     { title: 'blog', url: '/blog', openInNewTab: false },
     { title: 'about me', url: '/about', openInNewTab: false }
   ]
