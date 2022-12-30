@@ -62,7 +62,7 @@ const Home: React.FC<{ posts: Post[]; navLinks: NavLink[] }> = (props) => {
     <Background className={''}>
     <Layout>
       <main className={'h-screen xs:w-3/5 text-center xs:text-left flex flex-col xs:justify-center items-left sm:items-center my-0 py-8 md:py-10 px-0'} role="content">
-        <header className='w-[85%] mx-auto my-0 xs:m-0 md:w-10/12 border-[#B89F84] border-b sm:border-none'>
+        <header className='w-[85%] xl:text-center mx-auto my-0 xs:m-0 md:w-10/12 border-[#B89F84] border-b sm:border-none'>
           <StefanHorne className={`m-0 text-[#504A2F] text-5xl xs:text-6xl xl:text-7xl ${la_belle_aurore.className}`}>Stefan Horne</StefanHorne>
         </header>
         <div className='xs:hidden h-[60%] xxs:min-h-[400px]'></div>
@@ -94,4 +94,8 @@ const Background = styled.div`
     background-position: right -200px bottom
   }
 
+  @media (min-width: 769px) {
+    background: url('/images/home.webp') no-repeat center;
+    background-size: cover;
+  }
 `
