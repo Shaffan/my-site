@@ -25,8 +25,8 @@ const Nav: React.FC<{ navLinks: NavLink[] }> = (props) => {
   })
 
   return (
-    <nav className={'text-[#504A2F] text-6xl sm:text-4xl leading-[5rem] sm:border-t border-solid border-[#504A2F] sm:pt-4'} role="navigation">
-      <ul className={'text-center sm:text-left list-none p-0 mt-1.5 mx-0 mb-0 flex flex-col xl:flex-row sm:justify-evenly'}>{links}</ul>
+    <nav className={'text-[#504A2F] text-4xl xs:text-4xl leading-[3rem] sm:border-t border-solid border-[#504A2F] sm:pt-4'} role="navigation">
+      <ul className={'text-center xs:text-left list-none p-0 mt-1.5 mx-0 mb-0 flex flex-col xl:flex-row xs:justify-evenly'}>{links}</ul>
     </nav>
   )
 }

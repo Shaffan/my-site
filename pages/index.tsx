@@ -61,11 +61,11 @@ const Home: React.FC<{ posts: Post[]; navLinks: NavLink[] }> = (props) => {
   return (
     <Background className={''}>
     <Layout>
-      <main className={'h-screen sm:w-3/5 text-center flex flex-col sm:justify-center lg:items-center my-0 py-8 md:py-10 px-0'} role="content">
-        <header className='w-[85%] md:w-10/12 text-center border-[#B89F84] border-b sm:border-none'>
-          <StefanHorne className={`m-0 text-[#504A2F] text-6xl xl:text-7xl ${la_belle_aurore.className}`}>Stefan Horne</StefanHorne>
+      <main className={'h-screen xs:w-3/5 text-center xs:text-left flex flex-col xs:justify-center items-left sm:items-center my-0 py-8 md:py-10 px-0'} role="content">
+        <header className='w-[85%] mx-auto my-0 xs:m-0 md:w-10/12 border-[#B89F84] border-b sm:border-none'>
+          <StefanHorne className={`m-0 text-[#504A2F] text-5xl xs:text-6xl xl:text-7xl ${la_belle_aurore.className}`}>Stefan Horne</StefanHorne>
         </header>
-        <div className='sm:hidden h-[55%] '></div>
+        <div className='xs:hidden h-[60%] xxs:min-h-[400px]'></div>
         <Nav navLinks={navLinks}></Nav>
       </main>
     </Layout>
@@ -88,8 +88,10 @@ const Background = styled.div`
   background: url('/images/home-mobile.webp') no-repeat top;
   background-size: cover;
 
-  @media (min-width: 640px) {
-    background: url('/images/home.webp') no-repeat center;
+  @media (min-width: 500px) {
+    background: url('/images/home.webp') no-repeat;
     background-size: cover;
+    background-position: right -200px bottom
   }
+
 `

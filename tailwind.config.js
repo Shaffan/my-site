@@ -15,6 +15,7 @@ module.exports = {
     extend: {
       screens: {
         'xs': '500px',
+        'xxs': '400px',
       },
       keyframes: {
         'fade-in': {
