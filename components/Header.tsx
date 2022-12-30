@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import styles from '../styles/Header.module.scss'
 
-const Header: React.FC<{}> = () => {
+const Header: React.FC<Record<string, any>> = () => {
   return (
     <header className={styles.container}>
       <span className={styles.title}>

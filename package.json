@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint . --cache --fix"
   },
   "dependencies": {
     "@types/date-fns": "^2.6.0",
