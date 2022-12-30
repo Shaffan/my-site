@@ -1,9 +1,8 @@
-import styles from '../styles/Layout.module.scss'
 import Gtag from './gtag'
 
 export default function Layout(props) {
   return (
-    <div className={styles.container}>
+    <div className={"container animate-fade-in min-h-screen"}>
       <Gtag></Gtag>
       {props.children}
     </div>
