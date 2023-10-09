@@ -30,18 +30,9 @@ async function getPosts() {
 }
 
 async function getNavLinks(): Promise<NavLink[]> {
-  const res = await fetch(
-    `${CONTENT_API_URL}/ghost/api/v3/content/pages?key=${CONTENT_API_KEY}&fields=title,slug`
-  )
-  const json = await res.json()
-
-  // const pageLinks: NavLink[] = json.pages.map((page: Page) => {
-  //   return { title: page.title, url: `/${page.slug}` }
-  // })
   const links: NavLink[] = [
-    { title: 'cv', url: '/stefan-horne.pdf', openInNewTab: true },
-    { title: 'developer story', url: 'https://stackoverflow.com/story/stefan-horne', openInNewTab: false },
     { title: 'email', url: 'mailto:hello@stefanhorne.com', openInNewTab: false },
+    { title: 'github', url: 'https://github.com/Shaffan', openInNewTab: false },
     { title: 'blog', url: '/blog', openInNewTab: false },
     { title: 'about me', url: '/about', openInNewTab: false }
   ]

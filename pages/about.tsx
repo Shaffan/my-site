@@ -49,9 +49,6 @@ const SitePage: React.FC<{ page: Page }> = (props) => {
         <div>
           <div className={styles.picContainer}>
             <img className={styles.pic} src="images/me.jpg"></img>
-            <span className={styles.caption}>
-              (get a load of discount Justin Bieber over here--yes, that is a cheap wig btw)
-            </span>
           </div>
           <h1 className={styles.heading}>{page.title}</h1>
           <div className={styles.text} dangerouslySetInnerHTML={{ __html: page.html }}></div>
